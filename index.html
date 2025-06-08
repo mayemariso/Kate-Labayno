@@ -1,14 +1,91 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
- 
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
+    @media (max-width: 1024px) {
+      .hero-section .section-content,
+      .about-section .section-content {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
 
-    <link rel="stylesheet" href="style.css">
-	<link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
-	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+      .hero-section .hero-details .subtitle,
+      .hero-section .hero-details .description,
+      .about-section .about-details {
+        max-width: 100%;
+      }
+
+      .hero-section .hero-image-wrapper,
+      .about-section .about-image-wrapper {
+        margin: 30px 0;
+      }
+
+      .navbar .nav-menu {
+        flex-direction: column;
+        background: var(--primary-color);
+        position: fixed;
+        top: 70px;
+        right: 0;
+        width: 100%;
+        display: none;
+        padding: 20px;
+      }
+
+      .navbar .nav-menu.active {
+        display: flex;
+      }
+
+      .navbar #menu-open-button {
+        display: block;
+        color: var(--white-color);
+        font-size: 24px;
+      }
+
+      .navbar #menu-close-button {
+        display: block;
+        align-self: flex-end;
+        color: var(--white-color);
+        font-size: 24px;
+        margin-bottom: 10px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .menu-section .menu-list,
+      .testimonials-list {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-section .hero-details .title,
+      .section-title {
+        font-size: 1.5rem;
+      }
+
+      .hero-section .hero-details .subtitle {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-section .hero-details .buttons {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .navbar .nav-logo .logo-text {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
 </head>
+
+
 <body>
 <!-- Header / NavBar -->
   <header>
@@ -215,5 +292,19 @@ I am committed to continuous learning and collaboration, seeking opportunities t
  
 	<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 	<script src = "script.js"></script>
+	
+	  <script>
+    const openBtn = document.getElementById("menu-open-button");
+    const closeBtn = document.getElementById("menu-close-button");
+    const navMenu = document.querySelector(".nav-menu");
+
+    openBtn.addEventListener("click", () => {
+      navMenu.classList.add("active");
+    });
+
+    closeBtn.addEventListener("click", () => {
+      navMenu.classList.remove("active");
+    });
+  </script>
 </body>
 </html>
